@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Themed Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f4e6;
+        }
+        .navbar {
+            background: #c1272d;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .navbar.show {
+            transform: translateY(0);
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #c1272d;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+            border-radius: 5px;
+        }
+        .hero {
+            background-image: url(badfdebe80c546e51e48263201efbebe.jpg);
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .hero h1 {
+            font-size: 8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+        }
+        section {
+            padding: 80px 50px;
+            text-align: center;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .feature img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact button {
+            background: #c1272d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleNavbar()">☰ Menu</button>
+    <nav class="navbar" id="navbar">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section class="hero">
+        <h1>ようこそ！</h1>
+        <p>Welcome to the beauty of Japan</p>
+    </section>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Experience the elegance and culture of Japan through our platform.</p>
+    </section>
+    <section id="features" class="features">
+        <div class="feature">
+            <img src="e6e160795d8f90fc43de8a809b69925d.jpg" alt="Japanese Art">
+            <h3>Traditional Art</h3>
+            <p>Explore Japanese calligraphy and ukiyo-e paintings.</p>
+        </div>
+        <div class="feature">
+            <img src="f1465a152d44c91313ae1a47642ad7af.jpg" alt="Japanese Food">
+            <h3>Food & Culture</h3>
+            <p>Learn about sushi, ramen, and tea ceremonies.</p>
+        </div>
+        <div class="feature">
+            <img src= "a06182680cff5e51bfb7bb69a8a7b3a1.jpg" alt="Travel Destinations">
+            <h3>Travel Destinations</h3>
+            <p>Discover Mount Fuji, Kyoto, and Tokyo's vibrant life.</p>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <p id="responseMessage" style="display: none; color: green; margin-top: 10px;">Thank you for your message!</p>
+    </section>
+    <script>
+        function toggleNavbar() {
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("show");
+        }
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("responseMessage").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("responseMessage").style.display = "none";
+            }, 3000);
+            document.getElementById("contactForm").reset();
+        });
+    </script>
+</body>
+</html>
